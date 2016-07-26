@@ -1,0 +1,35 @@
+#ifndef BALLMANAGER_HH
+#define BALLMANAGER_HH
+
+#include <SFML/Graphics.hpp>
+
+#include "../include/Ball.hh"
+
+#include <vector>
+
+class Ball;
+
+class BallManager : public sf::Drawable, public sf::Transformable{
+private:
+  float fDisx, fDisy;
+  float fWallThick;
+
+  float fRadius;
+  float fMass;
+
+  int fBalls;
+  std::vector<Ball> fBallVec;
+  std::vector<Ball>::iterator fIt;
+  
+public:
+  BallManager(float,float,int);
+  ~BallManager() {};
+  void draw(sf::RenderTarget&, sf::RenderStates) const;
+
+  void Initialize();
+  void MoveBalls();
+  void Collision();
+
+  void SetWallThick(float a){ fWallThick = a; }
+};
+#endif
