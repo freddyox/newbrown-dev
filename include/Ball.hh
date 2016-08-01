@@ -19,14 +19,13 @@ private:
   sf::CircleShape fBall;
 
   float fWallThick;
-
-  static int fCol;
-  static int fRow;
+  bool fHitWall;
   static int fNBalls;
+
 
 public:
   Ball();
-  Ball(float, float, float, float, sf::Color);
+  Ball(float, float, sf::Vector2f, float, float, sf::Color);
   ~Ball() {};
   void draw(sf::RenderTarget&, sf::RenderStates) const;
 
@@ -36,12 +35,14 @@ public:
   void SetPos(sf::Vector2f a){ fPos = a; }
   void SetNhat(sf::Vector2f a) {fNhat = a; }
   void SetVelocity(sf::Vector2f a){ fVelocity = a; }
+  void SetColor(sf::Color);
 
   sf::Vector2f GetPos(){ return fPos; }
   float GetRadius(){ return fRadius; }
   float GetMass(){ return fMass; }
   sf::Vector2f GetNhat(){ return fNhat; }
   sf::Vector2f GetVelocity(){ return fVelocity; }
+  bool DidItHitWall(){ return fHitWall; }
 
 };
 #endif

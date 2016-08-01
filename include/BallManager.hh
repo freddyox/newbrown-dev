@@ -22,7 +22,9 @@ private:
   int fBallToWatch;
   std::vector<Ball> fBallVec;
   std::vector<Ball>::iterator fIt;
-  
+
+  std::vector<sf::Color> fColors;
+    
 public:
   BallManager(float,float,int);
   ~BallManager() {};
@@ -33,5 +35,8 @@ public:
   void Collision();
 
   void SetWallThick(float a){ fWallThick = a; }
+  sf::Vector2f GetUniqueBallPos();
+  bool DidBallHitWall();
+  long unsigned int GetNBounces(){ return fNBounces; }
 };
 #endif
