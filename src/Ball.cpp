@@ -41,7 +41,7 @@ void Ball::InitializeBall(){
 
   fBall.setPosition( fPos );
 
-  fVel = float( rand()%2 + 11 ) / 10.0; //11 - 20
+  fVel = float( rand()%2 + 11 ) / 13.0; 
   fVelocity = fVel*fNhat;
 }
 
